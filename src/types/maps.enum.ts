@@ -1,0 +1,14 @@
+export enum Maps {
+  Ascent = "ascent",
+  Split = "split",
+  Fracture = "fracture",
+  Bind = "bind",
+  Breeze = "breeze",
+  Abyss = "abyss",
+  Lotus = "lotus",
+  Sunset = "sunset",
+  Pearl = "pearl",
+  Icebox = "icebox",
+  Corrode = "corrode",
+  Haven = "haven",
+}
