@@ -16,7 +16,7 @@ export function Navbar(props: Props) {
         props.className,
       )}
     >
-      <h2 className={cn(blackOpsOne.className, "text-xl font-bold")}>
+      <h2 className={cn(blackOpsOne.className, "text-2xl font-bold")}>
         Comb finder
       </h2>
       <div className="flex flex-row items-center gap-2">
