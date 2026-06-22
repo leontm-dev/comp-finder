@@ -12,6 +12,7 @@ type Props = {
   className?: HTMLDivElement["className"];
   buttonVariant?: VariantProps<typeof buttonVariants>["variant"];
   showToggle?: boolean;
+  textClassName?: HTMLParagraphElement["className"];
 };
 const blackOpsOne = Black_Ops_One({ weight: "400" });
 export function Navbar(props: Props) {
@@ -22,7 +23,13 @@ export function Navbar(props: Props) {
         props.className,
       )}
     >
-      <h2 className={cn(blackOpsOne.className, "text-2xl font-bold")}>
+      <h2
+        className={cn(
+          blackOpsOne.className,
+          "text-2xl font-bold",
+          props.textClassName,
+        )}
+      >
         Comb finder
       </h2>
       <div className="flex flex-row items-center gap-2">
