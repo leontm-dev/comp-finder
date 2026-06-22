@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import { cn } from "cnfast";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistHeading = Geist({ subsets: ["latin"], variable: "--font-heading" });
 
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,18 +32,27 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "h-full",
         "antialiased",
         geistSans.variable,
         geistMono.variable,
         "font-sans",
-        dmSans.variable,
+        inter.variable,
         geistHeading.variable,
       )}
     >
+      <head />
       <body className="flex min-h-full flex-col">
-        <NuqsAdapter>{children}</NuqsAdapter>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </ThemeProvider>
       </body>
     </html>
   );
