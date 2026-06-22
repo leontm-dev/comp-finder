@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 import { Button, buttonVariants } from "../ui/button";
 import cn from "cnfast";
 import { Black_Ops_One } from "next/font/google";
@@ -28,12 +28,17 @@ export function Navbar(props: Props) {
       <div className="flex flex-row items-center gap-2">
         {props.showToggle && <ModeToggle />}
         <Link href={"https://github.com/leontm-dev/comb-finder-frontend"}>
-          <Button variant={"ghost"} size={"icon-lg"}>
+          <Button variant={"link"} size={"icon-lg"}>
             <HugeiconsIcon icon={GithubIcon} />
           </Button>
         </Link>
+        <Link href={"/trending"}>
+          <Button variant={"secondary"}>
+            <Sparkles /> Trending
+          </Button>
+        </Link>
         <Link href={"/find"}>
-          <Button variant={props.buttonVariant || "default"} size={"lg"}>
+          <Button variant={props.buttonVariant || "default"}>
             <Search /> Find
           </Button>
         </Link>
