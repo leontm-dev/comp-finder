@@ -30,7 +30,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
+import { cn } from "cnfast";
 import { API } from "@/services/api";
 import { VlrEvent } from "@/types/event.type";
 import { Maps } from "@/types/maps.enum";
@@ -84,9 +84,14 @@ export function CombFinderSelectionComponent() {
 
       try {
         const response = await API.Events.get();
-        if (!response) return setEvents([]);
+        if (!response.ok || !response.data) {
+          toast.error("Couldn't load events", {
+            description: response.message,
+          });
+          return setEvents([]);
+        }
 
-        setEvents(response);
+        setEvents(response.data);
         setEventsLoading(false);
       } catch (error) {
         console.log(error);
@@ -280,10 +285,11 @@ export function CombFinderSelectionComponent() {
     )
       .then((res) => {
         setLoading(false);
+        if (!res.ok || !res.data) return toast.error(res.message);
         toast.success(
           "Found some teams that are playing the agents you selected.",
         );
-        setResults(res);
+        setResults(res.data);
         setResultsOpen(true);
       })
       .catch((err) => {
