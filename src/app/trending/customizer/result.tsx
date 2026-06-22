@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -11,6 +12,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useIsMobile } from "@/hooks/is-mobile";
 import { decodeKAYO } from "@/lib/agent";
 import { TrendingEvent, TrendingResult } from "@/services/finder/functions";
 import cn from "cnfast";
@@ -24,8 +26,9 @@ type Props = {
 };
 
 export function TrendingCombResult(props: Props) {
+  const isMobile = useIsMobile();
   return (
-    <Accordion className={"pr-6"}>
+    <Accordion>
       {Object.entries(props.result).map((e) => {
         const event = props.events.find((event) => event.id === e[0]);
         if (!event) return <></>;
@@ -33,9 +36,14 @@ export function TrendingCombResult(props: Props) {
         return (
           <AccordionItem key={e[0]} value={e[0]}>
             <AccordionTrigger>
-              <div className="flex h-8 flex-row items-center gap-1">
+              <div className="flex h-6 flex-row items-center gap-1 lg:h-8">
                 {event.icon && (
-                  <Image src={event.icon} height={30} width={30} alt="" />
+                  <Image
+                    src={event.icon}
+                    height={isMobile ? 20 : 30}
+                    width={isMobile ? 20 : 30}
+                    alt=""
+                  />
                 )}
                 <p className="text-muted-foreground text-sm">{event.name}</p>
               </div>
@@ -61,6 +69,7 @@ type EventProps = {
   eventId: string;
 };
 function TrendingEventResult(props: EventProps) {
+  const isMobile = useIsMobile();
   return (
     <Accordion>
       {Object.entries(props.result).map((m) => {
@@ -75,34 +84,55 @@ function TrendingEventResult(props: EventProps) {
             key={`${map.name}_${props.eventId}`}
           >
             <AccordionTrigger>
-              <div className="flex h-10 flex-row items-center gap-2">
-                <Image
-                  src={map.icon}
-                  height={100}
-                  width={459}
-                  className="h-full w-auto"
-                  alt=""
-                />
-                <span className="text-sm font-extrabold">
-                  {map.name.charAt(0).toUpperCase()}
-                  {map.name.slice(1)}
-                </span>
+              <div className="flex h-6 flex-row items-center gap-2 lg:h-10">
+                {!isMobile && (
+                  <Image
+                    src={map.icon}
+                    height={100}
+                    width={459}
+                    className="h-full w-auto"
+                    alt=""
+                  />
+                )}
+                {!isMobile && (
+                  <span className="text-xs font-extrabold lg:text-sm">
+                    {map.name.charAt(0).toUpperCase()}
+                    {map.name.slice(1)}
+                  </span>
+                )}
+                {isMobile && (
+                  <div className="relative flex h-6 items-center justify-center">
+                    <Image
+                      src={map.icon}
+                      height={50}
+                      width={230}
+                      className="h-full w-auto"
+                      alt=""
+                    />
+                    <div className="bg-background/50 absolute flex h-full w-full items-center justify-center">
+                      <span className="text-xs font-extrabold lg:text-sm">
+                        {map.name.charAt(0).toUpperCase()}
+                        {map.name.slice(1)}
+                      </span>
+                    </div>
+                  </div>
+                )}
                 <Badge variant={"outline"} className="hover:no-underline">
-                  Played:{" "}
+                  {!isMobile && <>Played: </>}
                   {Object.entries(m[1])
                     .map((v) => v[1])
                     .map((t) => t.mapsCount)
                     .reduce((a, b) => a + b)}
                 </Badge>
                 <Badge variant={"default"} className="hover:no-underline">
-                  Wins:{" "}
+                  {!isMobile && <>Wins: </>}
                   {Object.entries(m[1])
                     .map((v) => v[1])
                     .map((t) => t.winsCount)
                     .reduce((a, b) => a + b)}
                 </Badge>
                 <Badge variant={"destructive"} className="hover:no-underline">
-                  Losses:{" "}
+                  {!isMobile && <>Losses: </>}
                   {Object.entries(m[1])
                     .map((v) => v[1])
                     .map((t) => t.lossesCount)
@@ -135,7 +165,7 @@ function TrendingEventResult(props: EventProps) {
                             <div
                               key={agent}
                               className={cn(
-                                "bg-muted flex aspect-square h-full items-center justify-center p-2",
+                                "bg-muted flex aspect-square h-full items-center justify-center p-0 lg:p-2",
                               )}
                             >
                               <Image
@@ -146,8 +176,8 @@ function TrendingEventResult(props: EventProps) {
                                       agent.toLowerCase(),
                                   )?.icon ?? ""
                                 }
-                                width={60}
-                                height={60}
+                                width={isMobile ? 30 : 60}
+                                height={isMobile ? 30 : 60}
                                 alt=""
                                 className="p-1"
                               />
@@ -168,10 +198,11 @@ function TrendingEventResult(props: EventProps) {
                                 <Tooltip key={team.name}>
                                   <TooltipTrigger
                                     render={
-                                      <div className="bg-muted flex aspect-square items-center justify-center p-1">
+                                      <div className="bg-muted flex aspect-square items-center justify-center">
                                         <Image
-                                          height={30}
-                                          width={30}
+                                          height={isMobile ? 30 : 50}
+                                          width={isMobile ? 30 : 50}
+                                          className="p-1"
                                           src={team.icon}
                                           alt=""
                                         />
