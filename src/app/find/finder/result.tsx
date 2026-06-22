@@ -7,14 +7,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { useIsMobile } from "@/hooks/is-mobile";
 import { decodeKAYO } from "@/lib/agent";
-import { cn } from "@/lib/utils";
+import { cn } from "cnfast";
 import { CombResult } from "@/types/result.type";
 import { ClockArrowUp, MonitorPlay } from "lucide-react";
 import Image from "next/image";
