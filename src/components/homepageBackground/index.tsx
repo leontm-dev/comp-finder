@@ -81,19 +81,16 @@ export function HomepageBackground(props: Props) {
   return (
     <div
       className={cn(
-        "relative flex min-h-screen max-w-screen flex-col gap-4",
+        "relative flex min-h-screen max-w-screen flex-col",
         !backgroundColor && "bg-background",
       )}
-      style={
-        backgroundColor
-          ? {
-              backgroundColor: backgroundColor,
-            }
-          : undefined
-      }
     >
       <main className="flex h-screen w-full flex-col items-center justify-center overflow-hidden">
-        <Navbar buttonVariant={"outline"} className="absolute top-0 z-20" />
+        <Navbar
+          textClassName={"text-white"}
+          buttonVariant={resolvedTheme === "light" ? "default" : "outline"}
+          className="absolute top-0 z-20"
+        />
         {selectedMap && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -109,6 +106,23 @@ export function HomepageBackground(props: Props) {
           {props.contents}
         </div>
       </main>
+      <div
+        className={cn(
+          "bg-background relative flex h-50 max-w-screen flex-col gap-4",
+        )}
+        style={
+          backgroundColor
+            ? {
+                background: `linear-gradient(180deg, 
+          ${backgroundColor} 0%,
+          color-mix(in srgb, ${backgroundColor} 70%, var(--background)) 30%,
+          color-mix(in srgb, ${backgroundColor} 30%, var(--background)) 60%,
+          color-mix(in srgb, ${backgroundColor} 10%, var(--background)) 80%,
+          var(--background) 100%)`,
+              }
+            : undefined
+        }
+      ></div>
       {props.children}
     </div>
   );
