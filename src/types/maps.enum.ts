@@ -11,4 +11,5 @@ export enum Maps {
   Icebox = "icebox",
   Corrode = "corrode",
   Haven = "haven",
+  Summit = "summit",
 }
