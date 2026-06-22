@@ -23,15 +23,17 @@ export function Navbar(props: Props) {
         props.className,
       )}
     >
-      <h2
-        className={cn(
-          blackOpsOne.className,
-          "text-2xl font-bold",
-          props.textClassName,
-        )}
-      >
-        Comb finder
-      </h2>
+      <Link href={"/"}>
+        <h2
+          className={cn(
+            blackOpsOne.className,
+            "text-2xl font-bold hover:cursor-pointer",
+            props.textClassName,
+          )}
+        >
+          Comb finder
+        </h2>
+      </Link>
       <div className="flex flex-row items-center gap-2">
         {props.showToggle && <ModeToggle />}
         <Link href={"https://github.com/leontm-dev/comb-finder-frontend"}>
