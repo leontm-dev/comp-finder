@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 
-import { cn } from "@/lib/utils";
+import { cn } from "cnfast";
 import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react";
 
 const Select = SelectPrimitive.Root;
@@ -114,9 +114,8 @@ function SelectLabel({
 function SelectItem({
   className,
   children,
-  showIndicator = true,
   ...props
-}: SelectPrimitive.Item.Props & { showIndicator?: boolean }) {
+}: SelectPrimitive.Item.Props) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -129,15 +128,13 @@ function SelectItem({
       <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
         {children}
       </SelectPrimitive.ItemText>
-      {showIndicator && (
-        <SelectPrimitive.ItemIndicator
-          render={
-            <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
-          }
-        >
-          <CheckIcon className="pointer-events-none" />
-        </SelectPrimitive.ItemIndicator>
-      )}
+      <SelectPrimitive.ItemIndicator
+        render={
+          <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
+        }
+      >
+        <CheckIcon className="pointer-events-none" />
+      </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   );
 }
