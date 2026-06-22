@@ -56,7 +56,10 @@ export async function findComb(
 }
 
 export async function getTrending(patch: number, patchRange: number = 2) {
-  return await callApiRoute<{ events: VlrEvent[]; result: TrendingResult }>(
+  return await callApiRoute<{
+    events: { name: string; icon: string | null; id: string }[];
+    result: TrendingResult;
+  }>(
     "/finder/trending",
     {
       patchRange: patchRange ? patchRange.toString() : undefined,
