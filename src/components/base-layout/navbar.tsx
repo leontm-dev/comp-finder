@@ -1,4 +1,4 @@
-import { Search, Star } from "lucide-react";
+import { Search } from "lucide-react";
 import { Button, buttonVariants } from "../ui/button";
 import cn from "cnfast";
 import { Black_Ops_One } from "next/font/google";
