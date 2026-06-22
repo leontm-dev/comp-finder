@@ -122,7 +122,7 @@ export function TrendingCustomizerForm() {
           </p>
         </div>
 
-        <div className="flex w-full flex-row items-center gap-4">
+        <div className="flex w-full flex-col items-center gap-4 lg:flex-row">
           <div className="flex w-full flex-col gap-2">
             <p className="text-sm">Patch</p>
             <InputGroup>
