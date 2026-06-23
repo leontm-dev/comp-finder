@@ -57,9 +57,11 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-row items-center gap-2">
-            <Button variant={"outline"}>
-              <ExternalLink /> Check them out
-            </Button>
+            <Link href={"/trending"}>
+              <Button variant={"outline"}>
+                <ExternalLink /> Check them out
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="no-scrollbar max-h-3/4 overflow-y-auto">
@@ -298,6 +300,23 @@ export default function Home() {
             }}
           />
         </div>
+      </div>
+      <div className="flex flex-col items-center justify-center gap-2 py-8">
+        <div className="flex flex-col gap-0">
+          <h3 className="text-center text-2xl">
+            Any ideas on how to improve the comb-finder
+          </h3>
+          <p className="text-muted-foreground text-center text-sm">
+            Create an issue on the GitHub repository. Leave suggestions, give
+            criticism or simply some feedback
+          </p>
+        </div>
+        <Link
+          target="_blank"
+          href={"https://github.com/leontm-dev/comb-finder-frontend"}
+        >
+          <Button variant={"default"}>GitHub</Button>
+        </Link>
       </div>
       <Footer />
     </HomepageBackground>
