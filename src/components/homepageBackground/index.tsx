@@ -63,7 +63,9 @@ export function HomepageBackground(props: Props) {
 
   React.useEffect(() => {
     async function load() {
-      const img = document.querySelector("img") as HTMLImageElement | null;
+      const img = document.querySelector(
+        "img#map-background",
+      ) as HTMLImageElement | null;
       console.log(img);
       if (!img) return;
       const { dominant } = await getDominantColorAsync(img, {
