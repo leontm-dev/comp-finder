@@ -3,7 +3,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 import { TrendingCustomizerForm } from "./customizer";
 import { Footer } from "@/components/base-layout/footer";
+import { Metadata } from "next";
 
+export const metdata: Metadata = {
+  title: "Trending | comb-finder",
+  description: "Discover the next comb your team has to try",
+};
 export default function TrendingPage() {
   return (
     <div className="relative flex max-w-screen flex-col">

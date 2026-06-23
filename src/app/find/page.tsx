@@ -3,7 +3,13 @@ import { Navbar } from "@/components/base-layout/navbar";
 import { CombFinderSelectionComponent } from "./finder";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Find | comb-finder",
+  description:
+    "Find teams that play exactly your combs or simply your favorite agents",
+};
 export default function FindPage() {
   return (
     <div className="relative flex max-w-screen flex-col">
