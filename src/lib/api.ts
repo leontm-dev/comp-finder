@@ -11,10 +11,12 @@ export async function callApiRoute<T, C extends string = string>(
     .map((v) => v[0] + "=" + v[1])
     .join("&")}`;
 
+  const url =
+    process.env.NODE_ENV === "production"
+      ? "https://api.comb-finder.leontm.me"
+      : "http://localhost:9090";
   const response = await fetch(
-    "http://localhost:9090" +
-      (route.startsWith("/") ? route : "/" + route) +
-      queryString,
+    url + (route.startsWith("/") ? route : "/" + route) + queryString,
     config,
   )
     .then((res) => res)
