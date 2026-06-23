@@ -7,7 +7,6 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { API } from "@/services/api";
@@ -135,6 +134,7 @@ export function TrendingCustomizerForm() {
                 min={1}
                 value={patch}
                 onChange={(ev) => {
+                  setMessage(null);
                   const modValue = parseFloat(ev.target.value);
                   if (isNaN(modValue)) return setPatch(null);
 
@@ -144,7 +144,10 @@ export function TrendingCustomizerForm() {
               <InputGroupAddon align={"inline-end"}>
                 <InputGroupButton
                   disabled={!currentPatch}
-                  onClick={() => setPatch(currentPatch)}
+                  onClick={() => {
+                    setPatch(currentPatch);
+                    setMessage(null);
+                  }}
                 >
                   Use current
                 </InputGroupButton>
@@ -161,6 +164,7 @@ export function TrendingCustomizerForm() {
               <Slider
                 value={patchRange}
                 onValueChange={(value) => {
+                  setMessage(null);
                   if (Array.isArray(value)) {
                     setPatchRange(value[0]);
                   } else if (typeof value === "number") {
@@ -191,7 +195,7 @@ export function TrendingCustomizerForm() {
                 return setMessage(
                   "Please set a patch you wanna search around.",
                 );
-              if (!patchRange)
+              if (patchRange === null)
                 return setMessage(
                   "Please declare a search range so that you don't get too many but also not too few results",
                 );
