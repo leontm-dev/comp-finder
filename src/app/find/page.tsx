@@ -9,6 +9,25 @@ export const metadata: Metadata = {
   title: "Find | comb-finder",
   description:
     "Find teams that play exactly your combs or simply your favorite agents",
+  robots: { index: true, follow: true },
+  authors: [{ name: "LeonTM", url: "https://leontm.me" }],
+  creator: "LeonTM",
+  category: "VALORANT",
+  keywords: [
+    "valorant",
+    "vlr.gg",
+    "combs",
+    "pros",
+    "vct",
+    "masters",
+    "champion",
+    "comb",
+    "agent",
+    "agents",
+    "jett",
+    "reyna",
+    "filters",
+  ],
 };
 export default function FindPage() {
   return (

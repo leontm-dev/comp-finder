@@ -8,6 +8,26 @@ import { Metadata } from "next";
 export const metdata: Metadata = {
   title: "Trending | comb-finder",
   description: "Discover the next comb your team has to try",
+  robots: { index: true, follow: true },
+  authors: [{ name: "LeonTM", url: "https://leontm.me" }],
+  creator: "LeonTM",
+  category: "VALORANT",
+  keywords: [
+    "valorant",
+    "vlr.gg",
+    "combs",
+    "pros",
+    "vct",
+    "masters",
+    "champion",
+    "comb",
+    "agent",
+    "agents",
+    "jett",
+    "reyna",
+    "trends",
+    "custom",
+  ],
 };
 export default function TrendingPage() {
   return (

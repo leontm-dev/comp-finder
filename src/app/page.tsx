@@ -14,6 +14,24 @@ export const metadata: Metadata = {
   title: "Comb finder",
   description:
     "Comb finder is a service that analyses pro teams and most importantly their combs. Find teams that are playing exactly your comb or discover the most trending comb on a certain map.",
+  robots: { index: true, follow: true },
+  authors: [{ name: "LeonTM", url: "https://leontm.me" }],
+  creator: "LeonTM",
+  category: "VALORANT",
+  keywords: [
+    "valorant",
+    "vlr.gg",
+    "combs",
+    "pros",
+    "vct",
+    "masters",
+    "champion",
+    "comb",
+    "agent",
+    "agents",
+    "jett",
+    "reyna",
+  ],
 };
 export default function Home() {
   return (
