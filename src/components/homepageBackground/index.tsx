@@ -53,7 +53,6 @@ export function HomepageBackground(props: Props) {
             light: e.premierBackgroundImage,
           }),
         );
-      console.log(maps);
       const selected = maps[Math.round(Math.random() * maps.length) - 1];
       setSelectedMap({ light: selected.light, dark: selected.dark });
     }
@@ -66,14 +65,12 @@ export function HomepageBackground(props: Props) {
       const img = document.querySelector(
         "img#map-background",
       ) as HTMLImageElement | null;
-      console.log(img);
       if (!img) return;
       const { dominant } = await getDominantColorAsync(img, {
         colorFormat: "hex",
         colorQuantization: "median-cut",
       });
 
-      console.log(dominant);
       setBackgroundColor(dominant);
     }
 
