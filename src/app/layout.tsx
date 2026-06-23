@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "cnfast";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "sonner";
 
 const geistHeading = Geist({ subsets: ["latin"], variable: "--font-heading" });
 
@@ -51,7 +52,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NuqsAdapter>{children}</NuqsAdapter>
+          <NuqsAdapter>
+            {children}
+            <Toaster />
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>
