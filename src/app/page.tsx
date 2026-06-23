@@ -12,6 +12,8 @@ const blackOpsOne = Black_Ops_One({ weight: "400" });
 
 export const metadata: Metadata = {
   title: "Comb finder",
+  description:
+    "Comb finder is a service that analyses pro teams and most importantly their combs. Find teams that are playing exactly your comb or discover the most trending comb on a certain map.",
 };
 export default function Home() {
   return (
