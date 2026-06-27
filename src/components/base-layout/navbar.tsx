@@ -36,7 +36,7 @@ export function Navbar(props: Props) {
       </Link>
       <div className="flex flex-row items-center gap-2">
         {props.showToggle && <ModeToggle />}
-        <Link href={"https://github.com/leontm-dev/comp-finder-frontend"}>
+        <Link href={"https://github.com/leontm-dev/comp-finder"}>
           <Button variant={"link"} size={"icon-lg"}>
             <HugeiconsIcon icon={GithubIcon} />
           </Button>

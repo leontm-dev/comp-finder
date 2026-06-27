@@ -51,7 +51,7 @@ export default function Home() {
             exactly your comp
           </p>
           <div className="flex flex-row flex-wrap items-center gap-2">
-            <Link href={"https://github.com"}>
+            <Link href={"https://github.com/leontm-dev/comp-finder"}>
               <Button variant={"link"}>
                 <Star /> on GitHub
               </Button>
@@ -333,7 +333,7 @@ export default function Home() {
         </div>
         <Link
           target="_blank"
-          href={"https://github.com/leontm-dev/comp-finder-frontend"}
+          href={"https://github.com/leontm-dev/comp-finder"}
         >
           <Button variant={"default"}>GitHub</Button>
         </Link>

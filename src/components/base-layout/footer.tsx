@@ -11,7 +11,7 @@ export function Footer() {
         Made with <Heart className="size-4 fill-pink-700" /> by{" "}
         <Link href={"https://github.com/leontm-dev"}>LeonTM</Link>
       </p>
-      <Link href={"https://github.com"}>
+      <Link href={"https://github.com/leontm-dev/comp-finder"}>
         <Button variant={"ghost"} size="icon">
           <HugeiconsIcon icon={GithubIcon} />
         </Button>
