@@ -451,7 +451,7 @@ export function CombFinderSelectionComponent() {
             <FormischField of={form} path={["agents"]}>
               {(field) => (
                 <Field data-invalid={field.errors !== null}>
-                  <FieldLabel htmlFor="form-agents">Comb</FieldLabel>
+                  <FieldLabel htmlFor="form-agents">comp</FieldLabel>
                   {assetsLoading && (
                     <div className="flex flex-row items-center gap-2">
                       <Spinner /> Loading agents...
@@ -504,7 +504,7 @@ export function CombFinderSelectionComponent() {
                     </ToggleGroup>
                   )}
                   <FieldDescription>
-                    Select up to five agents that should be in your comb
+                    Select up to five agents that should be in your comp
                   </FieldDescription>
                   {field.errors && (
                     <FieldError
@@ -774,7 +774,7 @@ export function CombFinderSelectionComponent() {
                 ) : (
                   <>
                     <Search />
-                    Find teams with a similar comb
+                    Find teams with a similar comp
                   </>
                 )}
               </Button>

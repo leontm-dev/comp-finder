@@ -31,12 +31,12 @@ export function Navbar(props: Props) {
             props.textClassName,
           )}
         >
-          Comb finder
+          comp finder
         </h2>
       </Link>
       <div className="flex flex-row items-center gap-2">
         {props.showToggle && <ModeToggle />}
-        <Link href={"https://github.com/leontm-dev/comb-finder-frontend"}>
+        <Link href={"https://github.com/leontm-dev/comp-finder-frontend"}>
           <Button variant={"link"} size={"icon-lg"}>
             <HugeiconsIcon icon={GithubIcon} />
           </Button>

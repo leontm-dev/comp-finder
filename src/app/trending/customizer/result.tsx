@@ -150,14 +150,14 @@ function TrendingEventResult(props: EventProps) {
             <AccordionContent>
               {Object.entries(m[1])
                 .sort((a, b) => b[1].mapsCount - a[1].mapsCount)
-                .map((comb) => (
+                .map((comp) => (
                   <Card
-                    key={`${props.eventId}_${map.name}_${comb}`}
+                    key={`${props.eventId}_${map.name}_${comp}`}
                     className="bg-background flex flex-row flex-wrap items-center justify-between gap-4"
                   >
                     <div className="flex flex-row items-center gap-4">
                       <div className="flex flex-row flex-nowrap items-center gap-2">
-                        {comb[0]
+                        {comp[0]
                           .split(",")
                           .sort()
                           .map((agent) => decodeKAYO(agent.toLowerCase()))
@@ -190,7 +190,7 @@ function TrendingEventResult(props: EventProps) {
                             Teams playing this:
                           </p>
                           <div className="flex flex-row items-center gap-1">
-                            {comb[1].teams
+                            {comp[1].teams
                               .sort(
                                 (a, b) => b.playedCombCount - a.playedCombCount,
                               )
@@ -220,12 +220,12 @@ function TrendingEventResult(props: EventProps) {
                       </div>
                     </div>
                     <div className="flex flex-row items-center gap-1">
-                      <Badge>{comb[1].winsCount} wins</Badge>
+                      <Badge>{comp[1].winsCount} wins</Badge>
                       <Badge variant={"destructive"}>
-                        {comb[1].lossesCount} losses
+                        {comp[1].lossesCount} losses
                       </Badge>
                       <Badge variant={"secondary"}>
-                        {comb[1].mapsCount} maps
+                        {comp[1].mapsCount} maps
                       </Badge>
                     </div>
                   </Card>

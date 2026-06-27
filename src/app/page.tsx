@@ -11,9 +11,9 @@ import { TrendingCombResult } from "./trending/customizer/result";
 const blackOpsOne = Black_Ops_One({ weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Comb finder",
+  title: "Comp finder",
   description:
-    "Comb finder is a service that analyses pro teams and most importantly their combs. Find teams that are playing exactly your comb or discover the most trending comb on a certain map.",
+    "Comp finder is a service that analyses pro teams and most importantly their comps. Find teams that are playing exactly your comp or discover the most trending comp on a certain map.",
   robots: { index: true, follow: true },
   authors: [{ name: "LeonTM", url: "https://leontm.me" }],
   creator: "LeonTM",
@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   keywords: [
     "valorant",
     "vlr.gg",
-    "combs",
+    "comps",
     "pros",
     "vct",
     "masters",
     "champion",
-    "comb",
+    "comp",
     "agent",
     "agents",
     "jett",
@@ -44,11 +44,11 @@ export default function Home() {
               blackOpsOne.className,
             )}
           >
-            Find pro-teams that play your comb
+            Find pro-teams that play your comp
           </h1>
           <p className="md:text-md text-center text-sm text-white lg:text-lg">
             Search a dozen games on vlr.gg to find tier 1 pro-teams that play
-            exactly your comb
+            exactly your comp
           </p>
           <div className="flex flex-row flex-wrap items-center gap-2">
             <Link href={"https://github.com"}>
@@ -69,10 +69,10 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-0">
             <h3 className={cn("text-4xl", blackOpsOne.className)}>
-              Trending combs
+              Trending comps
             </h3>
             <p>
-              Explore the most trending combs from recent patches on your
+              Explore the most trending comps from recent patches on your
               desired map.
             </p>
           </div>
@@ -324,7 +324,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center gap-2 py-8">
         <div className="flex flex-col gap-0">
           <h3 className="text-center text-2xl">
-            Any ideas on how to improve the comb-finder
+            Any ideas on how to improve the comp-finder
           </h3>
           <p className="text-muted-foreground text-center text-sm">
             Create an issue on the GitHub repository. Leave suggestions, give
@@ -333,7 +333,7 @@ export default function Home() {
         </div>
         <Link
           target="_blank"
-          href={"https://github.com/leontm-dev/comb-finder-frontend"}
+          href={"https://github.com/leontm-dev/comp-finder-frontend"}
         >
           <Button variant={"default"}>GitHub</Button>
         </Link>

@@ -13,7 +13,7 @@ export async function callApiRoute<T, C extends string = string>(
 
   const url =
     process.env.NODE_ENV === "production"
-      ? "https://api.comb-finder.leontm.me"
+      ? "https://api.comp-finder.leontm.me"
       : "http://localhost:9090";
   const response = await fetch(
     url + (route.startsWith("/") ? route : "/" + route) + queryString,

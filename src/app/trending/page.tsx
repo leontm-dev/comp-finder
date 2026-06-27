@@ -6,8 +6,8 @@ import { Footer } from "@/components/base-layout/footer";
 import { Metadata } from "next";
 
 export const metdata: Metadata = {
-  title: "Trending | comb-finder",
-  description: "Discover the next comb your team has to try",
+  title: "Trending | comp-finder",
+  description: "Discover the next comp your team has to try",
   robots: { index: true, follow: true },
   authors: [{ name: "LeonTM", url: "https://leontm.me" }],
   creator: "LeonTM",
@@ -15,12 +15,12 @@ export const metdata: Metadata = {
   keywords: [
     "valorant",
     "vlr.gg",
-    "combs",
+    "comps",
     "pros",
     "vct",
     "masters",
     "champion",
-    "comb",
+    "comp",
     "agent",
     "agents",
     "jett",

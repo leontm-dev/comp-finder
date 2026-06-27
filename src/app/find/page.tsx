@@ -6,9 +6,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Find | comb-finder",
+  title: "Find | comp-finder",
   description:
-    "Find teams that play exactly your combs or simply your favorite agents",
+    "Find teams that play exactly your comps or simply your favorite agents",
   robots: { index: true, follow: true },
   authors: [{ name: "LeonTM", url: "https://leontm.me" }],
   creator: "LeonTM",
@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   keywords: [
     "valorant",
     "vlr.gg",
-    "combs",
+    "comps",
     "pros",
     "vct",
     "masters",
     "champion",
-    "comb",
+    "comp",
     "agent",
     "agents",
     "jett",

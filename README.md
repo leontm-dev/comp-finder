@@ -1,17 +1,17 @@
-# comb-finder
+# comp-finder
 
-A vlr.gg based service that is build to help small premier teams to find tier1 teams that are playing the same comb or to discover new combs around few agents.
+A vlr.gg based service that is build to help small premier teams to find tier1 teams that are playing the same comp or to discover new comps around few agents.
 
 Use a bunch of filters to customize your results to exactly your needs.
 
 ## Features
 
-- agent/comb selection
+- agent/comp selection
 - event selection
 - patch filter (+ behavior setting)
 - game result filter
 - vod requirement filter
-- (trending combs)
+- (trending comps)
 
 ## Tech Stack
 
@@ -37,5 +37,5 @@ This is only the frontend to this project.
 
 Other repositories linked to this project:
 
-- [comb-finder-api](https://github.com/leontm-dev/comb-finder-api)
+- [comp-finder-api](https://github.com/leontm-dev/comp-finder-api)
 - [forked scraper + vpn](#)

@@ -113,7 +113,7 @@ export function TrendingCustomizerForm() {
       <div className="flex w-full flex-col gap-2">
         <div className="flex flex-col gap-0">
           <h2 className="decoration-primary text-2xl underline">
-            Discover the most trending comb
+            Discover the most trending comp
           </h2>
           <p className="text-muted-foreground text-sm">
             Use filters to customize your results. Filter values are saved in
@@ -155,7 +155,7 @@ export function TrendingCustomizerForm() {
             </InputGroup>
             <p className="text-muted-foreground text-xs">
               Set a patch around which you wanna search for trending tier 1
-              combs
+              comps
             </p>
           </div>
           <div className="flex w-full flex-col gap-2">
@@ -205,7 +205,7 @@ export function TrendingCustomizerForm() {
                 if (!res || !res.ok || !res.data)
                   return setMessage(res.message);
 
-                toast.success(`Trending combs found`, {
+                toast.success(`Trending comps found`, {
                   description: `patch: ${patch} • range: ${patchRange}`,
                 });
 
