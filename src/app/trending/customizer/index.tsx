@@ -10,16 +10,16 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { API } from "@/services/api";
-import { TrendingResult } from "@/services/finder/functions";
+import type { TrendingResult as TypeTrendingResult } from "@/services/finder/functions";
 import { Maps } from "@/types/maps.enum";
 import { ClockArrowUp, Search } from "lucide-react";
 import { useQueryState } from "nuqs";
 import React from "react";
 import { toast } from "sonner";
-import { TrendingCombResult } from "./result";
+import { TrendingResult } from "./result";
 
 export function TrendingCustomizerForm() {
-  const [result, setResult] = React.useState<TrendingResult | null>(null);
+  const [result, setResult] = React.useState<TypeTrendingResult | null>(null);
   const [events, setEvents] = React.useState<
     { name: string; icon: string | null; id: string }[]
   >([]);
@@ -237,11 +237,12 @@ export function TrendingCustomizerForm() {
       )}
       {result && (
         <div className={"no-scrollbar grow-0 overflow-y-auto"}>
-          <TrendingCombResult
+          <TrendingResult
             result={result}
             agents={agents}
             maps={maps}
             events={events}
+            allowMapDisplayMethod
           />
         </div>
       )}
