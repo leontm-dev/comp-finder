@@ -111,4 +111,19 @@ export function TrendingResult(props: Props) {
       </Tabs>
     );
   }
+
+  return (
+    <Accordion>
+      {Object.entries(props.result).map((eventEntry) => (
+        <TrendingEventResult
+          eventId={eventEntry[0]}
+          maps={props.maps}
+          agents={props.agents}
+          events={props.events}
+          key={eventEntry[0]}
+          result={eventEntry[1]}
+        />
+      ))}
+    </Accordion>
+  );
 }
