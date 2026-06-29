@@ -6,7 +6,7 @@ import { cn } from "cnfast";
 import Link from "next/link";
 import { Metadata } from "next";
 import { HomepageBackground } from "@/components/homepageBackground";
-import { TrendingCombResult } from "./trending/customizer/result";
+import { TrendingResult } from "./trending/customizer/result";
 
 const blackOpsOne = Black_Ops_One({ weight: "400" });
 
@@ -85,7 +85,8 @@ export default function Home() {
           </div>
         </div>
         <div className="no-scrollbar max-h-3/4 overflow-y-auto">
-          <TrendingCombResult
+          <TrendingResult
+            allowMapDisplayMethod={false}
             events={[
               {
                 icon: "https://owcdn.net/img/692fc18a04f4a.png",

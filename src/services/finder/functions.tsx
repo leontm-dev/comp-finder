@@ -2,12 +2,11 @@
 
 import { encodeKAYO } from "@/lib/agent";
 import { callApiRoute } from "@/lib/api";
-import { VlrEvent } from "@/types/event.type";
-import { CombResult } from "@/types/result.type";
+import { CompResult } from "@/types/result.type";
 export type TrendingResult = Record<string, TrendingEvent>;
 export type TrendingEvent = Record<string, TrendingMap>;
-export type TrendingMap = Record<string, TrendingComb>;
-export type TrendingComb = {
+export type TrendingMap = Record<string, TrendingComp>;
+export type TrendingComp = {
   teams: {
     name: string;
     icon: string;
@@ -18,6 +17,7 @@ export type TrendingComb = {
   lossesCount: number;
   mapsCount: number;
 };
+export type TrendingCompWithEventIds = TrendingComp & { eventIds: string[] };
 
 export async function findComb(
   agents: string[],
@@ -29,7 +29,7 @@ export async function findComb(
   patchBehavior?: "above" | "on" | "below",
 ) {
   return await callApiRoute<
-    CombResult[],
+    CompResult[],
     | "eventIds"
     | "agents"
     | "map"

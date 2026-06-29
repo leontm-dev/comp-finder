@@ -1,4 +1,4 @@
-export type CombResult = {
+export type CompResult = {
   agents: string[];
   map: string;
   team: {
