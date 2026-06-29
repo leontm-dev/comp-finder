@@ -1,7 +1,6 @@
 import { Accordion } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  TrendingComp,
   TrendingCompWithEventIds,
   type TrendingResult,
 } from "@/services/finder/functions";
