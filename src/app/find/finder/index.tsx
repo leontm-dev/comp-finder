@@ -34,7 +34,7 @@ import { cn } from "cnfast";
 import { API } from "@/services/api";
 import { VlrEvent } from "@/types/event.type";
 import { Maps } from "@/types/maps.enum";
-import { CombResult } from "@/types/result.type";
+import { CompResult } from "@/types/result.type";
 import {
   Form,
   Field as FormischField,
@@ -68,7 +68,7 @@ import { encodeKAYO } from "@/lib/agent";
 
 export function CombFinderSelectionComponent() {
   const [resultsOpen, setResultsOpen] = React.useState<boolean>(false);
-  const [results, setResults] = React.useState<CombResult[]>([]);
+  const [results, setResults] = React.useState<CompResult[]>([]);
   const [agents, setAgents] = React.useState<{ name: string; icon: string }[]>(
     [],
   );
