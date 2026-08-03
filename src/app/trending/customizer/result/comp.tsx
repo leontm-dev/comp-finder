@@ -23,6 +23,7 @@ import cn from "cnfast";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 type Props = {
   agents: { name: string; icon: string }[];
@@ -39,6 +40,25 @@ type PropsWithoutEvents = Props & { eventId: string; result: TrendingComp };
 
 export function TrendingCompResultWithEvents(props: PropsWithEvents) {
   const isMobile = useIsMobile();
+  const teams: PropsWithEvents["result"]["teams"] = React.useMemo(() => {
+    const map: Map<string, number> = new Map();
+
+    props.result.teams.map((t) => {
+      map.set(t.name, (map.get(t.name) || 0) + t.playedCombCount);
+    });
+    return Array.from(map.entries())
+      .map((v) => {
+        const team = props.result.teams.find((t) => t.name === v[0]);
+        if (!team) return null;
+
+        return {
+          name: team.name,
+          playedCombCount: v[1],
+          icon: team.icon,
+        };
+      })
+      .filter((e) => e !== null);
+  }, [props.result]);
   return (
     <HoverCard>
       <HoverCardContent>
@@ -121,7 +141,7 @@ export function TrendingCompResultWithEvents(props: PropsWithEvents) {
                     Teams playing this:
                   </p>
                   <div className="flex flex-row items-center gap-1">
-                    {props.result.teams
+                    {teams
                       .sort((a, b) => b.playedCombCount - a.playedCombCount)
                       .map((team) => (
                         <Tooltip key={team.name}>
@@ -163,6 +183,25 @@ export function TrendingCompResultWithEvents(props: PropsWithEvents) {
 }
 export function TrendingCompResultWithoutEvents(props: PropsWithoutEvents) {
   const isMobile = useIsMobile();
+  const teams: PropsWithEvents["result"]["teams"] = React.useMemo(() => {
+    const map: Map<string, number> = new Map();
+
+    props.result.teams.map((t) => {
+      map.set(t.name, (map.get(t.name) || 0) + t.playedCombCount);
+    });
+    return Array.from(map.entries())
+      .map((v) => {
+        const team = props.result.teams.find((t) => t.name === v[0]);
+        if (!team) return null;
+
+        return {
+          name: team.name,
+          playedCombCount: v[1],
+          icon: team.icon,
+        };
+      })
+      .filter((e) => e !== null);
+  }, [props.result]);
   return (
     <HoverCard>
       <HoverCardContent>
@@ -219,7 +258,7 @@ export function TrendingCompResultWithoutEvents(props: PropsWithoutEvents) {
                     Teams playing this:
                   </p>
                   <div className="flex flex-row items-center gap-1">
-                    {props.result.teams
+                    {teams
                       .sort((a, b) => b.playedCombCount - a.playedCombCount)
                       .map((team) => (
                         <Tooltip key={team.name}>
