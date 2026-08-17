@@ -1,54 +1,39 @@
-# -----------------------------------------------------------------------------
-# 1. Base Image mit Bun
-# -----------------------------------------------------------------------------
-FROM oven/bun:1-alpine AS base
+FROM imbios/bun-node:18-slim AS deps
+ARG DEBIAN_FRONTEND=noninteractive
+
+# I use Asia/Jakarta as my timezone, you can change it to your timezone
+RUN apt-get -y update && \
+  apt-get install -yq openssl git ca-certificates tzdata && \
+  ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && \
+  dpkg-reconfigure -f noninteractive tzdata
 WORKDIR /app
 
-# -----------------------------------------------------------------------------
-# 2. Dependencies installieren
-# -----------------------------------------------------------------------------
-FROM base AS deps
-COPY package.json bun.lockb* bun.lock* ./
+# Install dependencies based on the preferred package manager
+COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile
 
-# -----------------------------------------------------------------------------
-# 3. Next.js App bauen
-# -----------------------------------------------------------------------------
-FROM base AS builder
+# Build the app
+FROM deps AS builder
 WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Next.js Telemetrie während des Builds deaktivieren
-ENV NEXT_TELEMETRY_DISABLED=1
-
-# Next.js App mit Bun bauen
 RUN bun run build
 
-# -----------------------------------------------------------------------------
-# 4. Production Runner Image
-# -----------------------------------------------------------------------------
-FROM base AS runner
+
+# Production image, copy all the files and run next
+FROM node:18-slim AS runner
 WORKDIR /app
 
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+ARG CONFIG_FILE
+COPY $CONFIG_FILE /app/.env
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
 
-# Non-root Benutzer für mehr Sicherheit anlegen
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+COPY --from=builder  /app/.next/standalone ./
 
-# Nur die benötigten Standalone-Dateien & static Assets kopieren
-COPY --from=builder ./public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+EXPOSE 3001
 
-USER nextjs
+ENV PORT 3001
 
-EXPOSE 3000
-
-# Starten des Standalone-Servers mit Bun
-CMD ["bun", "run", "server.js"]
+CMD ["node", "server.js"]
