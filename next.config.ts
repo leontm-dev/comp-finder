@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   compress: true,
   turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+    },
     root: "./",
   },
   output: "standalone",
@@ -17,8 +23,11 @@ const nextConfig: NextConfig = {
   },
   devIndicators: { position: "top-left" },
   experimental: {
+    optimizePackageImports: ["react", "radix-ui"],
+    optimizeServerReact: true,
     cssChunking: true,
-    optimizeCss: true,
+    typedEnv: process.env.NODE_ENV === "development",
+    webpackMemoryOptimizations: process.env.NODE_ENV === "development",
   },
   images: {
     remotePatterns: [
