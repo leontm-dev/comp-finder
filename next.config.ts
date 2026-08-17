@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: "./",
   },
+  output: "standalone",
   typedRoutes: true,
   logging: {
     fetches: { fullUrl: true, hmrRefreshes: true },
