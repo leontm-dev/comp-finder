@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
   },
   devIndicators: { position: "top-left" },
   experimental: {
-    optimizePackageImports: ["react", "radix-ui"],
+    optimizePackageImports: ["react"],
     optimizeServerReact: true,
     cssChunking: true,
     typedEnv: process.env.NODE_ENV === "development",
