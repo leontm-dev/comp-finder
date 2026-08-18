@@ -8,16 +8,20 @@ const nextConfig: NextConfig = {
     root: "./",
   },
   output: "standalone",
+  typedRoutes: true,
   logging: {
-    fetches: {
-      fullUrl: true,
-      hmrRefreshes: true,
-    },
+    fetches: { fullUrl: true, hmrRefreshes: true },
+    browserToTerminal: true,
     incomingRequests: true,
     serverFunctions: true,
-    browserToTerminal: false,
   },
-  typedRoutes: true,
+  images: {
+    remotePatterns: [
+      new URL("https://media.valorant-api.com/**"),
+      new URL("https://owcdn.net/img/**"),
+      new URL("https://www.vlr.gg/img/**"),
+    ],
+  },
 };
 
 export default nextConfig;
