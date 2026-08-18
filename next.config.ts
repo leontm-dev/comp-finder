@@ -5,37 +5,19 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   compress: true,
   turbopack: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
-      },
-    },
     root: "./",
   },
   output: "standalone",
-  typedRoutes: true,
   logging: {
-    fetches: { fullUrl: true, hmrRefreshes: true },
-    browserToTerminal: true,
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
     incomingRequests: true,
     serverFunctions: true,
+    browserToTerminal: false,
   },
-  devIndicators: { position: "top-left" },
-  experimental: {
-    optimizePackageImports: ["react"],
-    optimizeServerReact: true,
-    cssChunking: true,
-    typedEnv: process.env.NODE_ENV === "development",
-    webpackMemoryOptimizations: process.env.NODE_ENV === "development",
-  },
-  images: {
-    remotePatterns: [
-      new URL("https://media.valorant-api.com/**"),
-      new URL("https://owcdn.net/img/**"),
-      new URL("https://www.vlr.gg/img/**"),
-    ],
-  },
+  typedRoutes: true,
 };
 
 export default nextConfig;
