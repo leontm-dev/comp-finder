@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
-    "@formisch/react": "^0.5.0",
+    "@formisch/react": "^1.0.0",
     "@hugeicons/core-free-icons": "^4.2.0",
     "@hugeicons/react": "^1.1.6",
     "@rtcoder/dominant-color": "^0.2.0",

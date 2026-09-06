@@ -6,7 +6,7 @@
       "name": "comp-finder",
       "dependencies": {
         "@base-ui/react": "^1.7.0",
-        "@formisch/react": "^0.5.0",
+        "@formisch/react": "^1.0.0",
         "@hugeicons/core-free-icons": "^4.2.0",
         "@hugeicons/react": "^1.1.6",
         "@rtcoder/dominant-color": "^0.2.0",
@@ -149,7 +149,7 @@
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.12", "", {}, "sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww=="],
 
-    "@formisch/react": ["@formisch/react@0.5.0", "", { "peerDependencies": { "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "typescript": ">=5", "valibot": "^1.4.1" }, "optionalPeers": ["typescript"] }, "sha512-lueetILu2+sePmNMRkT5F6VVDiGKWqwF9NB5ksw5vD0PQ3roCuIgrGqiqoVJEstmLIct/NWSCWo4pU3IUtJWWQ=="],
+    "@formisch/react": ["@formisch/react@1.0.0", "", { "peerDependencies": { "react": ">=16.8.0 <20", "react-dom": ">=16.8.0 <20", "typescript": ">=5 <8", "valibot": ">=1.4.1 <2" }, "optionalPeers": ["typescript"] }, "sha512-3lHzk6orMgzvbgfEWZ4G/rTQie5/LB8/ffPIUjM1jQ0vnqZCeDfi2c70toa6DM6bDVN5BrYc7sAu+Ekb2t92vg=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.14", "", { "peerDependencies": { "hono": "^4" } }, "sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw=="],
 
