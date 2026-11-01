@@ -27,7 +27,7 @@
     "postprocessing": "^6.39.5",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "react": "^19.2.8",
+    "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "shadcn": "^4.22.1",
     "sonner": "^2.0.8",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26",
-    "@types/react": "19.2.18",
+    "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^10",
