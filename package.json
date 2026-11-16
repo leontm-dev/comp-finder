@@ -25,7 +25,7 @@
     "nuqs": "^2.10.3",
     "postcss": "^8.5.32",
     "postprocessing": "^6.39.5",
-    "prettier": "^3.9.10",
+    "prettier": "^3.10.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
