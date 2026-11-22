@@ -7,7 +7,7 @@
       "dependencies": {
         "@base-ui/react": "^1.8.0",
         "@formisch/react": "^1.2.0",
-        "@hugeicons/core-free-icons": "^4.3.5",
+        "@hugeicons/core-free-icons": "^4.4.0",
         "@hugeicons/react": "^1.1.10",
         "@rtcoder/dominant-color": "^0.2.0",
         "class-variance-authority": "^0.7.1",
@@ -155,7 +155,7 @@
 
     "@formisch/react": ["@formisch/react@1.2.0", "", { "peerDependencies": { "react": ">=16.8.0 <20", "react-dom": ">=16.8.0 <20", "typescript": ">=5 <8", "valibot": ">=1.4.1 <2" }, "optionalPeers": ["typescript"] }, "sha512-UsWPAIEt8DxfJZH9reeUkc6pAyY+YCGWTJDhrJaUEaKEUxhIFcezoBaFYSbuYuSzKlhj6lJVnIo5PMx8EgfJqg=="],
 
-    "@hugeicons/core-free-icons": ["@hugeicons/core-free-icons@4.3.5", "", {}, "sha512-Sv+NjHRPnQk+yZsGCMcGznCHdTfJR9PMMOEKcJYAQU4gy90dmlc9PwdtvYOImBZIjiheMsTLL5eMn2DmHxUiUg=="],
+    "@hugeicons/core-free-icons": ["@hugeicons/core-free-icons@4.4.0", "", {}, "sha512-7Mz8bmGoY6tZ6l3C2TXwNMLVSr0I8HPwjjFIERAuJFj3rWwLxdF2ZLkDqdrVuEE1dx5b/VXyIsP4WoSU6Q40KQ=="],
 
     "@hugeicons/react": ["@hugeicons/react@1.1.10", "", { "peerDependencies": { "react": ">=16.0.0" } }, "sha512-9tAsd92yMVVGP+E+d8cM+wc0VnXuYZHNbWQi7TOe8k2neawmhiaFmVFbzyruejhOMa197/LbgvSED32ayUo3ZA=="],
 
